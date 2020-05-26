@@ -12,7 +12,7 @@ window.onload = function () {
     var path;
     var seconds = 0;
     var loud_volume_threshold = 30;
-    
+
     var soundAllowed = function (stream) {
         permission = true;
         var audioStream = audioContent.createMediaStreamSource( stream );
@@ -24,9 +24,9 @@ window.onload = function () {
 
         var bufferLength = analyser.frequencyBinCount;
         var frequencyArray = new Uint8Array(bufferLength);
-        
+
         visualizer.setAttribute('viewBox', '0 0 255 255');
-      
+
         for (var i = 0 ; i < 255; i++) {
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             path.setAttribute('stroke-dasharray', '4,1');
@@ -61,7 +61,7 @@ window.onload = function () {
                 var db = 20 * ( Math.log(rms) / Math.log(10) );
                 db = Math.max(db, 0); // sanity check
                 h.innerHTML = Math.floor(db) + " dB";
-    
+
                 if (db >= loud_volume_threshold) {
                     seconds += 0.5;
                     if (seconds >= 5) {
@@ -105,7 +105,7 @@ window.onload = function () {
                 audioContent = new AudioContext();
             }
             start = true;
-            this.innerHTML = "<span class='fa fa-stop'></span>Stop Listen";
+            this.innerHTML = "<span class='fa fa-stop'></span>Stop Cheering";
             this.className = "red-button";
         }
     };
